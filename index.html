@@ -55,7 +55,7 @@
       <div class="col-md-4 ">
          <div class="Withdraw status">
             <h5>Withdraw</h5>
-            <h2>$00</h2>
+            <h2>$ <span id="currentWithdraw">00</span></h2>
          </div>
       </div>
       <div class="col-md-4">
@@ -124,7 +124,13 @@
         withdrawBtn.addEventListener("click",function(){
             // const withdrawAmount = document.getElementById("withdrawAmount").value;
             // const withdrawNumber = parseFloat( withdrawAmount );
-            const withdrawNumber = getInputNumber("withdrawAmount")
+            const withdrawNumber = getInputNumber("withdrawAmount");
+
+            updateSpanText("currentWithdraw",withdrawNumber);
+            // -1 dara gun kora hoiv-cy ai jonno je taka jeno komy jay current balance teky
+            updateSpanText("currentBalance", -1*withdrawNumber);//balance teky taka out korar jonno ai rule
+
+            document.getElementById("withdrawAmount").value ="";
 
         })
 
